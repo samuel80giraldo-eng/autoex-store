@@ -1,0 +1,604 @@
+/* =========================
+    PÁGINA DE FAVORITOS
+ ========================= */
+
+.favorites-page {
+  position: relative;
+  overflow: hidden;
+
+  min-height: 100vh;
+
+  padding: 120px 20px 80px;
+
+  background:
+    radial-gradient(
+      circle at 12% 15%,
+      rgba(11, 94, 215, 0.20),
+      transparent 32%
+    ),
+    radial-gradient(
+      circle at 88% 82%,
+      rgba(255, 133, 0, 0.09),
+      transparent 28%
+    ),
+    linear-gradient(
+      135deg,
+      #030916 0%,
+      #06142b 50%,
+      #020711 100%
+    );
+}
+
+/* =========================
+   BRILLOS DEL FONDO
+ ========================= */
+
+.favorites-page::before {
+  content: "";
+
+  position: absolute;
+
+  width: 500px;
+  height: 500px;
+
+  top: -280px;
+  right: -180px;
+
+  border-radius: 50%;
+
+  background: rgba(11, 94, 215, 0.14);
+
+  filter: blur(100px);
+
+  pointer-events: none;
+}
+
+.favorites-page::after {
+  content: "";
+
+  position: absolute;
+
+  width: 320px;
+  height: 320px;
+
+  left: -180px;
+  bottom: -150px;
+
+  border-radius: 50%;
+
+  background: rgba(255, 133, 0, 0.07);
+
+  filter: blur(90px);
+
+  pointer-events: none;
+}
+
+/* =========================
+   CONTENEDOR
+ ========================= */
+
+.favorites-container {
+  position: relative;
+
+  z-index: 2;
+
+  width: min(1200px, 100%);
+
+  margin: 0 auto;
+}
+
+/* =========================
+   ENCABEZADO
+ ========================= */
+
+.favorites-header {
+  position: relative;
+
+  margin-bottom: 55px;
+
+  text-align: center;
+}
+
+.favorites-header::before {
+  content: "";
+
+  display: block;
+
+  width: 65px;
+  height: 3px;
+
+  margin: 0 auto 20px;
+
+  border-radius: 10px;
+
+  background: linear-gradient(
+    90deg,
+    #ff8500,
+    #ffb45f
+  );
+}
+
+.favorites-header > span {
+  display: block;
+
+  margin-bottom: 10px;
+
+  color: #1684ff;
+
+  font-size: 13px;
+
+  font-weight: 800;
+
+  letter-spacing: 2px;
+
+  text-transform: uppercase;
+}
+
+.favorites-header h1 {
+  margin: 0 0 12px;
+
+  color: #ffffff;
+
+  font-size: clamp(
+    2.5rem,
+    5vw,
+    4rem
+  );
+
+  line-height: 1;
+
+  letter-spacing: -2px;
+
+  font-weight: 800;
+}
+
+.favorites-header p {
+  margin: 0;
+
+  color: rgba(255, 255, 255, 0.58);
+
+  font-size: 16px;
+}
+
+/* =========================
+   GRID
+ ========================= */
+
+.favorites-grid {
+  display: grid;
+
+  grid-template-columns:
+    repeat(
+      auto-fill,
+      minmax(250px, 1fr)
+    );
+
+  gap: 25px;
+}
+
+/* =========================
+   TARJETA
+ ========================= */
+
+.favorite-card {
+  position: relative;
+
+  overflow: hidden;
+
+  background:
+    linear-gradient(
+      145deg,
+      rgba(10, 31, 62, 0.98),
+      rgba(4, 17, 37, 0.98)
+    );
+
+  border: 1px solid rgba(255, 255, 255, 0.08);
+
+  border-radius: 18px;
+
+  box-shadow:
+    0 15px 40px rgba(0, 0, 0, 0.22);
+
+  transition:
+    transform 0.25s ease,
+    box-shadow 0.25s ease,
+    border-color 0.25s ease;
+}
+
+.favorite-card:hover {
+  transform: translateY(-5px);
+
+  border-color: rgba(11, 94, 215, 0.40);
+
+  box-shadow:
+    0 20px 45px rgba(0, 0, 0, 0.30),
+    0 0 25px rgba(11, 94, 215, 0.08);
+}
+
+/* =========================
+   IMAGEN
+ ========================= */
+
+.favorite-card-image {
+  position: relative;
+
+  height: 260px;
+
+  background:
+    linear-gradient(
+      145deg,
+      #0b2448,
+      #07172f
+    );
+}
+
+.favorite-card-image img {
+  width: 100%;
+  height: 100%;
+
+  object-fit: contain;
+
+  transition:
+    transform 0.3s ease;
+}
+
+.favorite-card:hover
+.favorite-card-image img {
+  transform: scale(1.05);
+}
+
+/* =========================
+   DESCUENTO
+ ========================= */
+
+.favorite-discount {
+  position: absolute;
+
+  top: 15px;
+  left: 15px;
+
+  padding: 6px 10px;
+
+  border-radius: 20px;
+
+  background: #ff8500;
+
+  color: #ffffff;
+
+  font-size: 12px;
+
+  font-weight: 800;
+
+  box-shadow:
+    0 6px 15px rgba(255, 133, 0, 0.20);
+}
+
+/* =========================
+   BOTÓN ELIMINAR
+ ========================= */
+
+.favorite-remove {
+  position: absolute;
+
+  top: 14px;
+  right: 14px;
+
+  width: 42px;
+  height: 42px;
+
+  border: 1px solid rgba(255, 255, 255, 0.10);
+
+  border-radius: 50%;
+
+  background: rgba(4, 17, 37, 0.90);
+
+  color: #ff5b62;
+
+  font-size: 22px;
+
+  cursor: pointer;
+
+  box-shadow:
+    0 8px 20px rgba(0, 0, 0, 0.20);
+
+  transition:
+    transform 0.2s ease,
+    background 0.2s ease;
+}
+
+.favorite-remove:hover {
+  transform: scale(1.08);
+
+  background: rgba(229, 57, 53, 0.16);
+}
+
+/* =========================
+   INFORMACIÓN
+ ========================= */
+
+.favorite-card-info {
+  padding: 22px;
+}
+
+.favorite-category {
+  display: block;
+
+  margin-bottom: 8px;
+
+  color: #1684ff;
+
+  font-size: 12px;
+
+  font-weight: 800;
+
+  text-transform: uppercase;
+
+  letter-spacing: 1px;
+}
+
+.favorite-card-info h2 {
+  margin: 0 0 12px;
+
+  color: #ffffff;
+
+  font-size: 19px;
+
+  line-height: 1.35;
+}
+
+/* =========================
+   RATING
+ ========================= */
+
+.favorite-rating {
+  display: flex;
+
+  align-items: center;
+
+  gap: 8px;
+
+  margin-bottom: 20px;
+}
+
+.favorite-rating span {
+  color: #ff8500;
+
+  font-size: 14px;
+}
+
+.favorite-rating small {
+  color: rgba(255, 255, 255, 0.45);
+}
+
+/* =========================
+   PARTE INFERIOR
+ ========================= */
+
+.favorite-card-bottom {
+  display: flex;
+
+  align-items: center;
+
+  justify-content: space-between;
+
+  gap: 15px;
+}
+
+.favorite-prices {
+  display: flex;
+
+  flex-direction: column;
+
+  gap: 4px;
+}
+
+.favorite-old-price {
+  color: rgba(255, 255, 255, 0.38);
+
+  font-size: 13px;
+
+  text-decoration: line-through;
+}
+
+.favorite-prices strong {
+  color: #ffffff;
+
+  font-size: 22px;
+}
+
+/* =========================
+   BOTÓN CARRITO
+ ========================= */
+
+.favorite-cart {
+  width: 46px;
+  height: 46px;
+
+  border: none;
+
+  border-radius: 12px;
+
+  background: #0b5ed7;
+
+  color: #ffffff;
+
+  font-size: 19px;
+
+  cursor: pointer;
+
+  box-shadow:
+    0 8px 20px rgba(11, 94, 215, 0.20);
+
+  transition:
+    transform 0.2s ease,
+    background 0.2s ease,
+    box-shadow 0.2s ease;
+}
+
+.favorite-cart:hover {
+  transform: translateY(-2px);
+
+  background: #087cff;
+
+  box-shadow:
+    0 12px 25px rgba(11, 94, 215, 0.30);
+}
+
+/* =========================
+   SIN FAVORITOS
+ ========================= */
+
+.favorites-empty {
+  position: relative;
+
+  max-width: 600px;
+
+  margin: 40px auto;
+
+  padding: 65px 30px;
+
+  text-align: center;
+
+  background:
+    linear-gradient(
+      145deg,
+      rgba(10, 31, 62, 0.97),
+      rgba(4, 17, 37, 0.97)
+    );
+
+  border: 1px solid rgba(255, 255, 255, 0.08);
+
+  border-radius: 20px;
+
+  box-shadow:
+    0 20px 45px rgba(0, 0, 0, 0.25);
+}
+
+.favorites-empty-icon {
+  margin-bottom: 20px;
+
+  color: #1684ff;
+
+  font-size: 64px;
+}
+
+.favorites-empty h2 {
+  margin: 0 0 10px;
+
+  color: #ffffff;
+
+  font-size: 25px;
+}
+
+.favorites-empty p {
+  max-width: 430px;
+
+  margin: 0 auto 25px;
+
+  color: rgba(255, 255, 255, 0.55);
+
+  line-height: 1.6;
+}
+
+.favorites-empty button {
+  padding: 13px 25px;
+
+  border: none;
+
+  border-radius: 10px;
+
+  background: #ff8500;
+
+  color: #ffffff;
+
+  font-size: 15px;
+
+  font-weight: 700;
+
+  cursor: pointer;
+
+  box-shadow:
+    0 8px 20px rgba(255, 133, 0, 0.20);
+
+  transition:
+    transform 0.2s ease,
+    box-shadow 0.2s ease;
+}
+
+.favorites-empty button:hover {
+  transform: translateY(-2px);
+
+  box-shadow:
+    0 12px 25px rgba(255, 133, 0, 0.30);
+}
+
+/* =========================
+   MÓVIL
+ ========================= */
+
+@media (max-width: 700px) {
+
+  .favorites-page {
+    padding: 95px 15px 60px;
+  }
+
+  .favorites-header {
+    margin-bottom: 40px;
+  }
+
+  .favorites-header h1 {
+    font-size: 2.6rem;
+
+    letter-spacing: -1.5px;
+  }
+
+  .favorites-grid {
+    grid-template-columns: 1fr;
+
+    gap: 18px;
+  }
+
+  .favorite-card-image {
+    height: 240px;
+  }
+
+  .favorites-empty {
+    padding: 50px 22px;
+  }
+}
+.favorites-back-button {
+display: inline-flex;
+align-items: center;
+gap: 8px;
+
+width: fit-content;
+
+margin-bottom: 25px;
+
+padding: 10px 16px;
+
+border: 1px solid rgba(22, 74, 156, 0.18);
+border-radius: 10px;
+
+background: rgba(22, 74, 156, 0.07);
+color: #164a9c;
+
+text-decoration: none;
+
+font-size: 0.85rem;
+font-weight: 700;
+
+transition:
+background 0.2s ease,
+color 0.2s ease,
+transform 0.2s ease,
+border-color 0.2s ease;
+}
+
+.favorites-back-button:hover {
+background: #164a9c;
+border-color: #164a9c;
+color: #ffffff;
+
+transform: translateX(-3px);
+}

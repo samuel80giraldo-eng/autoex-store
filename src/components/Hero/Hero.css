@@ -1,0 +1,460 @@
+.hero {
+  position: relative;
+  overflow: hidden;
+
+  min-height: calc(100vh - 82px);
+
+  display: flex;
+  align-items: center;
+
+  color: white;
+
+  /*
+    LA IMAGEN ES EL FONDO REAL DEL HERO
+  */
+  background-image:
+    linear-gradient(
+      90deg,
+      rgba(1, 7, 18, 0.98) 0%,
+      rgba(1, 7, 18, 0.94) 18%,
+      rgba(1, 10, 25, 0.72) 38%,
+      rgba(1, 10, 25, 0.18) 62%,
+      rgba(1, 7, 18, 0.05) 100%
+    ),
+    var(--hero-image);
+
+  /*
+    La imagen ocupa TODO el Hero
+  */
+  background-size: cover;
+
+  /*
+    El automóvil queda hacia la derecha
+  */
+  background-position: center center;
+
+  background-repeat: no-repeat;
+
+  isolation: isolate;
+}
+
+
+/* =========================================
+   CAPA DE COLOR AZUL
+========================================= */
+
+.hero::before {
+  content: "";
+
+  position: absolute;
+  inset: 0;
+
+  z-index: -1;
+
+  pointer-events: none;
+
+  background:
+    radial-gradient(
+      ellipse at 65% 58%,
+      rgba(0, 102, 255, 0.25),
+      transparent 42%
+    ),
+    radial-gradient(
+      ellipse at 92% 55%,
+      rgba(255, 91, 0, 0.16),
+      transparent 32%
+    );
+}
+
+
+/* =========================================
+   OSCURECER LIGERAMENTE EL LADO DEL TEXTO
+========================================= */
+
+.hero::after {
+  content: "";
+
+  position: absolute;
+  inset: 0;
+
+  z-index: 0;
+
+  pointer-events: none;
+
+  background:
+    linear-gradient(
+      90deg,
+      rgba(1, 6, 15, 0.55) 0%,
+      rgba(1, 6, 15, 0.28) 30%,
+      transparent 60%
+    );
+}
+
+
+/* =========================================
+   CONTENIDO
+========================================= */
+
+.hero-container {
+  position: relative;
+  z-index: 2;
+
+  width: min(100% - 80px, 1400px);
+
+  min-height: 680px;
+
+  margin: 0 auto;
+
+  display: flex;
+  align-items: center;
+}
+
+
+/* =========================================
+   TEXTO
+========================================= */
+
+.hero-content {
+  position: relative;
+  z-index: 3;
+
+  width: 52%;
+  max-width: 650px;
+}
+
+
+.hero-label {
+  display: inline-flex;
+  align-items: center;
+  gap: 14px;
+
+  margin-bottom: 22px;
+
+  color: #ff8500;
+
+  font-size: 0.8rem;
+  font-weight: 800;
+
+  letter-spacing: 2px;
+}
+
+.hero-label::after {
+  content: "";
+
+  width: 48px;
+  height: 2px;
+
+  background: #ff8500;
+}
+
+
+/* =========================================
+   TITULO
+========================================= */
+
+.hero h1 {
+  margin: 0 0 24px;
+
+  color: #ffffff;
+
+  font-size: clamp(
+    3rem,
+    5vw,
+    5.3rem
+  );
+
+  line-height: 0.97;
+
+  letter-spacing: -3px;
+
+  font-weight: 850;
+
+  text-shadow:
+    0 4px 25px rgba(0, 0, 0, 0.45);
+}
+
+
+.hero h1 span {
+  color: #087cff;
+
+  text-shadow:
+    0 0 30px rgba(0, 124, 255, 0.3);
+}
+
+
+/* =========================================
+   DESCRIPCIÓN
+========================================= */
+
+.hero p {
+  max-width: 530px;
+
+  margin: 0 0 34px;
+
+  color: rgba(255, 255, 255, 0.78);
+
+  font-size: 1.05rem;
+
+  line-height: 1.7;
+}
+
+
+/* =========================================
+   BOTONES
+========================================= */
+
+.hero-actions {
+  display: flex;
+  align-items: center;
+
+  gap: 14px;
+
+  margin-bottom: 48px;
+}
+
+
+.hero-button {
+  min-height: 54px;
+
+  padding: 0 28px;
+
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+
+  border-radius: 10px;
+
+  text-decoration: none;
+
+  font-size: 0.95rem;
+  font-weight: 750;
+
+  transition:
+    transform 0.25s ease,
+    background 0.25s ease,
+    box-shadow 0.25s ease;
+}
+
+
+.hero-button:hover {
+  transform: translateY(-3px);
+}
+
+
+/* BOTÓN PRINCIPAL */
+
+.hero-button.primary {
+  background: #ff8500;
+
+  color: white;
+
+  box-shadow:
+    0 10px 35px rgba(
+      255,
+      133,
+      0,
+      0.3
+    );
+}
+
+
+.hero-button.primary:hover {
+  background: #ff941f;
+
+  box-shadow:
+    0 15px 40px rgba(
+      255,
+      133,
+      0,
+      0.4
+    );
+}
+
+
+/* BOTÓN SECUNDARIO */
+
+.hero-button.secondary {
+  border: 1px solid
+    rgba(255, 255, 255, 0.3);
+
+  background:
+    rgba(0, 0, 0, 0.18);
+
+  color: white;
+
+  backdrop-filter: blur(5px);
+}
+
+
+.hero-button.secondary:hover {
+  background:
+    rgba(255, 255, 255, 0.1);
+}
+
+
+/* =========================================
+   BENEFICIOS
+========================================= */
+
+.hero-trust {
+  display: flex;
+  flex-wrap: wrap;
+
+  gap: 24px;
+
+  color:
+    rgba(255, 255, 255, 0.75);
+
+  font-size: 0.8rem;
+}
+
+
+.hero-trust div {
+  display: flex;
+  align-items: center;
+
+  gap: 8px;
+}
+
+
+.hero-trust strong {
+  width: 20px;
+  height: 20px;
+
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+
+  border-radius: 50%;
+
+  background: #087cff;
+
+  color: white;
+
+  font-size: 11px;
+
+  box-shadow:
+    0 0 15px
+    rgba(0, 124, 255, 0.45);
+}
+
+
+/* =========================================
+   TABLET
+========================================= */
+
+@media (max-width: 1000px) {
+
+  .hero {
+    min-height: 700px;
+
+    background-position:
+      63% center;
+  }
+
+  .hero::after {
+    background:
+      linear-gradient(
+        90deg,
+        rgba(1, 6, 15, 0.8) 0%,
+        rgba(1, 6, 15, 0.58) 45%,
+        rgba(1, 6, 15, 0.15) 100%
+      );
+  }
+
+  .hero-container {
+    width:
+      min(100% - 50px, 900px);
+
+    min-height: 700px;
+  }
+
+  .hero-content {
+    width: 70%;
+  }
+
+}
+
+
+/* =========================================
+   MÓVIL
+========================================= */
+
+@media (max-width: 600px) {
+
+  .hero {
+    min-height: 720px;
+
+    align-items: flex-start;
+
+    background-position:
+      65% center;
+  }
+
+  .hero::after {
+    background:
+      linear-gradient(
+        180deg,
+        rgba(1, 6, 15, 0.92) 0%,
+        rgba(1, 6, 15, 0.72) 48%,
+        rgba(1, 6, 15, 0.38) 100%
+      );
+  }
+
+  .hero-container {
+    width:
+      min(100% - 30px, 500px);
+
+    min-height: auto;
+
+    padding-top: 70px;
+  }
+
+  .hero-content {
+    width: 100%;
+
+    text-align: center;
+  }
+
+  .hero-label {
+    justify-content: center;
+
+    font-size: 0.68rem;
+  }
+
+  .hero-label::after {
+    width: 30px;
+  }
+
+  .hero h1 {
+    font-size:
+      clamp(2.7rem, 13vw, 4rem);
+
+    letter-spacing: -2px;
+  }
+
+  .hero p {
+    margin-left: auto;
+    margin-right: auto;
+
+    font-size: 0.95rem;
+  }
+
+  .hero-actions {
+    flex-direction: column;
+
+    width: 100%;
+  }
+
+  .hero-button {
+    width: 100%;
+  }
+
+  .hero-trust {
+    flex-direction: column;
+
+    align-items: center;
+
+    gap: 13px;
+  }
+}

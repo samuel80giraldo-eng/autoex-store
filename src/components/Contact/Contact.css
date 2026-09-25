@@ -1,0 +1,537 @@
+/* =========================
+   CONTACTO
+========================= */
+
+.contact-section {
+  position: relative;
+  overflow: hidden;
+
+  padding: 110px 40px;
+
+  background:
+    radial-gradient(
+      circle at 15% 30%,
+      rgba(11, 94, 215, 0.18),
+      transparent 32%
+    ),
+    radial-gradient(
+      circle at 90% 75%,
+      rgba(255, 133, 0, 0.10),
+      transparent 28%
+    ),
+    linear-gradient(
+      135deg,
+      #030916 0%,
+      #06142b 48%,
+      #020711 100%
+    );
+
+  border-top: 1px solid rgba(255, 255, 255, 0.06);
+}
+
+/* Brillo ambiental superior */
+
+.contact-section::before {
+  content: "";
+
+  position: absolute;
+
+  width: 500px;
+  height: 500px;
+
+  top: -300px;
+  right: -180px;
+
+  border-radius: 50%;
+
+  background: rgba(11, 94, 215, 0.16);
+
+  filter: blur(100px);
+
+  pointer-events: none;
+}
+
+/* Línea naranja decorativa */
+
+.contact-section::after {
+  content: "";
+
+  position: absolute;
+
+  width: 280px;
+  height: 2px;
+
+  left: 40px;
+  top: 0;
+
+  background: linear-gradient(
+    90deg,
+    #ff8500,
+    rgba(255, 133, 0, 0)
+  );
+
+  opacity: 0.8;
+}
+
+.contact-container {
+  position: relative;
+  z-index: 2;
+
+  max-width: 1300px;
+
+  margin: 0 auto;
+}
+
+/* =========================
+   ENCABEZADO
+========================= */
+
+.contact-header {
+  max-width: 720px;
+
+  margin-bottom: 55px;
+}
+
+.contact-label {
+  display: inline-block;
+
+  margin-bottom: 14px;
+
+  color: #ff8500;
+
+  font-size: 12px;
+  font-weight: 800;
+
+  letter-spacing: 2px;
+
+  text-transform: uppercase;
+}
+
+.contact-header h2 {
+  margin: 0;
+
+  color: #ffffff;
+
+  font-size: clamp(2.2rem, 4vw, 3.6rem);
+
+  line-height: 1.05;
+
+  letter-spacing: -2px;
+}
+
+.contact-header h2 span {
+  color: #087cff;
+}
+
+.contact-header p {
+  max-width: 650px;
+
+  margin: 20px 0 0;
+
+  color: rgba(255, 255, 255, 0.62);
+
+  font-size: 1rem;
+
+  line-height: 1.75;
+}
+
+/* =========================
+   CONTENIDO
+========================= */
+
+.contact-content {
+  display: grid;
+
+  grid-template-columns:
+    minmax(0, 1.5fr)
+    minmax(320px, 0.8fr);
+
+  gap: 25px;
+
+  align-items: stretch;
+}
+
+/* =========================
+   INFORMACIÓN
+========================= */
+
+.contact-info {
+  display: grid;
+
+  grid-template-columns: 1fr;
+
+  gap: 15px;
+}
+
+/* =========================
+   TARJETAS
+========================= */
+
+.contact-card {
+  position: relative;
+
+  display: flex;
+
+  align-items: flex-start;
+
+  gap: 18px;
+
+  padding: 24px;
+
+  background:
+    linear-gradient(
+      145deg,
+      rgba(10, 31, 62, 0.96),
+      rgba(5, 18, 39, 0.96)
+    );
+
+  border: 1px solid rgba(255, 255, 255, 0.08);
+
+  border-radius: 16px;
+
+  box-shadow:
+    0 12px 35px rgba(0, 0, 0, 0.18),
+    inset 0 1px 0 rgba(255, 255, 255, 0.03);
+
+  transition:
+    transform 0.25s ease,
+    box-shadow 0.25s ease,
+    border-color 0.25s ease;
+}
+
+.contact-card:hover {
+  transform: translateY(-4px);
+
+  border-color: rgba(11, 94, 215, 0.45);
+
+  box-shadow:
+    0 18px 40px rgba(0, 0, 0, 0.28),
+    0 0 25px rgba(11, 94, 215, 0.08);
+}
+
+/* =========================
+   ICONOS
+========================= */
+
+.contact-card-icon {
+  flex-shrink: 0;
+
+  width: 50px;
+  height: 50px;
+
+  display: flex;
+
+  align-items: center;
+  justify-content: center;
+
+  border-radius: 14px;
+
+  background:
+    linear-gradient(
+      145deg,
+      rgba(11, 94, 215, 0.25),
+      rgba(11, 94, 215, 0.08)
+    );
+
+  border: 1px solid rgba(11, 94, 215, 0.25);
+
+  color: #1684ff;
+
+  font-size: 22px;
+
+  box-shadow:
+    0 8px 20px rgba(11, 94, 215, 0.10);
+}
+
+.contact-card span {
+  display: block;
+
+  margin-bottom: 5px;
+
+  color: #1684ff;
+
+  font-size: 11px;
+
+  font-weight: 800;
+
+  letter-spacing: 1px;
+
+  text-transform: uppercase;
+}
+
+.contact-card h3 {
+  margin: 0;
+
+  color: #ffffff;
+
+  font-size: 17px;
+
+  font-weight: 700;
+}
+
+.contact-card p {
+  margin: 7px 0 0;
+
+  color: rgba(255, 255, 255, 0.55);
+
+  font-size: 13px;
+
+  line-height: 1.55;
+}
+
+/* =========================
+   TARJETA PRINCIPAL
+========================= */
+
+.contact-action {
+  position: relative;
+
+  overflow: hidden;
+
+  padding: 35px;
+
+  display: flex;
+
+  flex-direction: column;
+
+  justify-content: center;
+
+  background:
+    radial-gradient(
+      circle at 90% 10%,
+      rgba(255, 133, 0, 0.20),
+      transparent 35%
+    ),
+    linear-gradient(
+      145deg,
+      #0b5ed7 0%,
+      #063a8d 55%,
+      #031b43 100%
+    );
+
+  border: 1px solid rgba(255, 255, 255, 0.10);
+
+  border-radius: 18px;
+
+  color: #ffffff;
+
+  box-shadow:
+    0 20px 50px rgba(0, 0, 0, 0.28);
+}
+
+/* Brillo naranja */
+
+.contact-action::before {
+  content: "";
+
+  position: absolute;
+
+  width: 220px;
+  height: 220px;
+
+  right: -100px;
+  top: -100px;
+
+  border-radius: 50%;
+
+  background: rgba(255, 133, 0, 0.18);
+
+  filter: blur(20px);
+}
+
+/* Brillo azul */
+
+.contact-action::after {
+  content: "";
+
+  position: absolute;
+
+  width: 180px;
+  height: 180px;
+
+  left: -100px;
+  bottom: -100px;
+
+  border-radius: 50%;
+
+  background: rgba(0, 174, 255, 0.18);
+
+  filter: blur(20px);
+}
+
+.contact-action > * {
+  position: relative;
+
+  z-index: 1;
+}
+
+/* =========================
+   ICONO PRINCIPAL
+========================= */
+
+.contact-action-icon {
+  width: 52px;
+  height: 52px;
+
+  margin-bottom: 22px;
+
+  display: flex;
+
+  align-items: center;
+  justify-content: center;
+
+  border-radius: 14px;
+
+  background: #ff8500;
+
+  color: #ffffff;
+
+  font-size: 22px;
+
+  box-shadow:
+    0 10px 25px rgba(255, 133, 0, 0.25);
+}
+
+.contact-action > span {
+  margin-bottom: 8px;
+
+  color: #ffb45f;
+
+  font-size: 12px;
+
+  font-weight: 800;
+
+  letter-spacing: 1px;
+
+  text-transform: uppercase;
+}
+
+.contact-action h3 {
+  margin: 0;
+
+  color: #ffffff;
+
+  font-size: 26px;
+
+  line-height: 1.2;
+}
+
+.contact-action p {
+  max-width: 340px;
+
+  margin: 16px 0 25px;
+
+  color: rgba(255, 255, 255, 0.72);
+
+  font-size: 14px;
+
+  line-height: 1.65;
+}
+
+/* =========================
+   BOTÓN WHATSAPP
+========================= */
+
+.contact-whatsapp {
+  width: fit-content;
+
+  display: flex;
+
+  align-items: center;
+  justify-content: space-between;
+
+  gap: 35px;
+
+  padding: 13px 17px;
+
+  border: 1px solid rgba(255, 255, 255, 0.12);
+
+  border-radius: 9px;
+
+  background: rgba(255, 255, 255, 0.96);
+
+  color: #071225;
+
+  text-decoration: none;
+
+  font-size: 14px;
+
+  font-weight: 700;
+
+  box-shadow:
+    0 10px 25px rgba(0, 0, 0, 0.15);
+
+  transition:
+    transform 0.2s ease,
+    background 0.2s ease,
+    box-shadow 0.2s ease;
+}
+
+.contact-whatsapp strong {
+  color: #ff8500;
+
+  font-size: 19px;
+}
+
+.contact-whatsapp:hover {
+  transform: translateY(-3px);
+
+  background: #ffffff;
+
+  box-shadow:
+    0 15px 30px rgba(0, 0, 0, 0.22);
+}
+
+/* =========================
+   TABLET
+========================= */
+
+@media (max-width: 900px) {
+
+  .contact-content {
+    grid-template-columns: 1fr;
+  }
+
+  .contact-action {
+    min-height: 300px;
+  }
+}
+
+/* =========================
+   MÓVIL
+========================= */
+
+@media (max-width: 760px) {
+
+  .contact-section {
+    padding: 75px 20px;
+  }
+
+  .contact-section::after {
+    left: 20px;
+  }
+
+  .contact-header {
+    margin-bottom: 35px;
+  }
+
+  .contact-header h2 {
+    font-size: 2.2rem;
+
+    letter-spacing: -1px;
+  }
+
+  .contact-card {
+    padding: 20px;
+  }
+
+  .contact-action {
+    padding: 28px;
+
+    min-height: auto;
+  }
+
+  .contact-action h3 {
+    font-size: 23px;
+  }
+}

@@ -1,0 +1,336 @@
+/* =========================
+   PÁGINA DE OFERTAS
+========================= */
+
+.offers-page {
+  position: relative;
+  overflow: hidden;
+
+  min-height: 100vh;
+
+  padding: 120px 40px 100px;
+
+  background:
+    radial-gradient(
+      circle at 15% 15%,
+      rgba(11, 94, 215, 0.20),
+      transparent 32%
+    ),
+    radial-gradient(
+      circle at 90% 85%,
+      rgba(255, 133, 0, 0.10),
+      transparent 28%
+    ),
+    linear-gradient(
+      135deg,
+      #030916 0%,
+      #06142b 50%,
+      #020711 100%
+    );
+}
+
+/* BRILLO DECORATIVO */
+
+.offers-page::before {
+  content: "";
+
+  position: absolute;
+
+  width: 500px;
+  height: 500px;
+
+  top: -250px;
+  right: -180px;
+
+  border-radius: 50%;
+
+  background: rgba(11, 94, 215, 0.15);
+
+  filter: blur(100px);
+
+  pointer-events: none;
+}
+
+.offers-page::after {
+  content: "";
+
+  position: absolute;
+
+  width: 300px;
+  height: 300px;
+
+  left: -180px;
+  bottom: -150px;
+
+  border-radius: 50%;
+
+  background: rgba(255, 133, 0, 0.08);
+
+  filter: blur(90px);
+
+  pointer-events: none;
+}
+
+/* =========================
+   SECCIÓN
+========================= */
+
+.offers-section {
+  position: relative;
+  z-index: 2;
+}
+
+.offers-container {
+  width: min(1300px, 100%);
+
+  margin: 0 auto;
+}
+
+/* =========================
+   ENCABEZADO
+========================= */
+
+.offers-header {
+  position: relative;
+
+  max-width: 760px;
+
+  margin: 0 auto 65px;
+
+  text-align: center;
+}
+
+.offers-header::before {
+  content: "";
+
+  display: block;
+
+  width: 70px;
+  height: 3px;
+
+  margin: 0 auto 22px;
+
+  border-radius: 10px;
+
+  background: linear-gradient(
+    90deg,
+    #ff8500,
+    #ffb45f
+  );
+}
+
+.offers-header > span {
+  display: block;
+
+  margin-bottom: 15px;
+
+  color: #ff8500;
+
+  font-size: 12px;
+
+  font-weight: 800;
+
+  letter-spacing: 2px;
+
+  text-transform: uppercase;
+}
+
+.offers-header h1 {
+  margin: 0;
+
+  color: #ffffff;
+
+  font-size: clamp(
+    2.6rem,
+    5vw,
+    4.5rem
+  );
+
+  line-height: 1;
+
+  letter-spacing: -3px;
+
+  font-weight: 800;
+}
+
+.offers-header h1 strong {
+  color: #087cff;
+
+  font-weight: 800;
+}
+
+.offers-header p {
+  max-width: 620px;
+
+  margin: 22px auto 0;
+
+  color: rgba(255, 255, 255, 0.60);
+
+  font-size: 1rem;
+
+  line-height: 1.75;
+}
+
+/* =========================
+   GRID
+========================= */
+
+.offers-grid {
+  display: grid;
+
+  grid-template-columns:
+    repeat(4, minmax(0, 1fr));
+
+  gap: 22px;
+}
+
+/*
+   Las tarjetas usan ProductCard.css.
+   Aquí les damos un pequeño contexto
+   visual para integrarlas al fondo.
+*/
+
+.offers-grid .product-card {
+  background:
+    linear-gradient(
+      145deg,
+      rgba(10, 31, 62, 0.98),
+      rgba(4, 17, 37, 0.98)
+    );
+
+  border: 1px solid rgba(255, 255, 255, 0.08);
+
+  box-shadow:
+    0 15px 40px rgba(0, 0, 0, 0.22);
+}
+
+.offers-grid .product-card:hover {
+  border-color: rgba(11, 94, 215, 0.45);
+
+  box-shadow:
+    0 20px 45px rgba(0, 0, 0, 0.30),
+    0 0 25px rgba(11, 94, 215, 0.08);
+}
+
+/* =========================
+   ESTADO SIN OFERTAS
+========================= */
+
+.offers-empty {
+  max-width: 600px;
+
+  margin: 70px auto 0;
+
+  padding: 60px 35px;
+
+  text-align: center;
+
+  background:
+    linear-gradient(
+      145deg,
+      rgba(10, 31, 62, 0.95),
+      rgba(4, 17, 37, 0.95)
+    );
+
+  border: 1px solid rgba(255, 255, 255, 0.08);
+
+  border-radius: 20px;
+
+  box-shadow:
+    0 20px 45px rgba(0, 0, 0, 0.25);
+}
+
+.offers-empty h2 {
+  margin: 0 0 12px;
+
+  color: #ffffff;
+
+  font-size: 25px;
+}
+
+.offers-empty p {
+  margin: 0;
+
+  color: rgba(255, 255, 255, 0.55);
+
+  line-height: 1.6;
+}
+
+/* =========================
+   TABLET
+========================= */
+
+@media (max-width: 1100px) {
+
+  .offers-grid {
+    grid-template-columns:
+      repeat(2, minmax(0, 1fr));
+  }
+}
+
+/* =========================
+   MÓVIL
+========================= */
+
+@media (max-width: 700px) {
+
+  .offers-page {
+    padding: 100px 20px 70px;
+  }
+
+  .offers-header {
+    margin-bottom: 45px;
+  }
+
+  .offers-header h1 {
+    font-size: 2.8rem;
+
+    letter-spacing: -2px;
+  }
+
+  .offers-header p {
+    font-size: 0.95rem;
+  }
+
+  .offers-grid {
+    grid-template-columns: 1fr;
+
+    gap: 18px;
+  }
+}
+.offers-back-button {
+display: inline-flex;
+align-items: center;
+gap: 8px;
+
+width: fit-content;
+
+margin-bottom: 25px;
+
+padding: 10px 16px;
+
+border: 1px solid rgba(22, 74, 156, 0.18);
+border-radius: 10px;
+
+background: rgba(22, 74, 156, 0.07);
+color: #164a9c;
+
+text-decoration: none;
+
+font-size: 0.85rem;
+font-weight: 700;
+
+transition:
+background 0.2s ease,
+color 0.2s ease,
+transform 0.2s ease,
+border-color 0.2s ease;
+}
+
+.offers-back-button:hover {
+background: #164a9c;
+border-color: #164a9c;
+color: #ffffff;
+
+transform: translateX(-3px);
+}

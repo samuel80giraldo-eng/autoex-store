@@ -1,0 +1,410 @@
+/* =========================
+   PRODUCT CARD AUTOEX
+========================= */
+
+.product-card {
+  position: relative;
+  overflow: hidden;
+
+  width: 100%;
+  box-sizing: border-box;
+
+  background: #071a32 !important;
+
+  border: 1px solid rgba(35, 117, 210, 0.35);
+  border-radius: 18px;
+
+  box-shadow:
+    0 14px 35px rgba(0, 0, 0, 0.35),
+    inset 0 1px 0 rgba(255, 255, 255, 0.04);
+
+  transition:
+    transform 0.3s ease,
+    box-shadow 0.3s ease,
+    border-color 0.3s ease;
+}
+
+.product-card:hover {
+  transform: translateY(-7px);
+
+  border-color: rgba(0, 126, 255, 0.7);
+
+  box-shadow:
+    0 22px 45px rgba(0, 0, 0, 0.45),
+    0 0 25px rgba(0, 105, 230, 0.15);
+}
+
+
+/* =========================
+   IMAGEN
+========================= */
+
+.product-image {
+  position: relative;
+
+  width: 100%;
+  height: 270px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  overflow: hidden;
+
+  background:
+    linear-gradient(
+      145deg,
+      #dce5f0 0%,
+      #c2d0df 50%,
+      #a9bacd 100%
+    );
+
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.product-image img {
+  position: relative;
+  z-index: 2;
+
+  width: 100%;
+  height: 100%;
+
+  object-fit: contain;
+
+  transition:
+    transform 0.35s ease,
+    filter 0.35s ease;
+}
+
+.product-card:hover .product-image img {
+  transform: scale(1.06);
+
+  filter:
+    drop-shadow(0 14px 18px rgba(0, 0, 0, 0.28));
+}
+
+
+/* =========================
+   BRILLO SOBRE IMAGEN
+========================= */
+
+.product-image::after {
+  content: "";
+
+  position: absolute;
+
+  inset: 0;
+
+  background:
+    linear-gradient(
+      135deg,
+      rgba(255, 255, 255, 0.15),
+      transparent 45%,
+      rgba(0, 20, 50, 0.12)
+    );
+
+  pointer-events: none;
+}
+
+
+/* =========================
+   DESCUENTO
+========================= */
+
+.product-discount {
+  position: absolute;
+
+  top: 14px;
+  left: 14px;
+
+  z-index: 5;
+
+  padding: 6px 10px;
+
+  border-radius: 7px;
+
+  background:
+    linear-gradient(
+      135deg,
+      #ff9b27,
+      #f56f00
+    );
+
+  color: #ffffff;
+
+  font-size: 0.72rem;
+  font-weight: 800;
+
+  box-shadow:
+    0 6px 15px rgba(255, 133, 0, 0.3);
+}
+
+
+/* =========================
+   FAVORITO
+========================= */
+
+.product-favorite {
+  position: absolute;
+
+  top: 12px;
+  right: 12px;
+
+  z-index: 10;
+
+  width: 40px;
+  height: 40px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  border-radius: 50%;
+
+  background: rgba(5, 25, 50, 0.82);
+
+  color: #ffffff;
+
+  font-size: 1.2rem;
+
+  cursor: pointer;
+
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+
+  transition:
+    transform 0.2s ease,
+    background 0.2s ease,
+    color 0.2s ease;
+}
+
+.product-favorite:hover {
+  transform: scale(1.1);
+
+  background: #ffffff;
+
+  color: #e53935;
+}
+
+.product-favorite.active {
+  background: #ffffff;
+
+  color: #e53935;
+}
+
+
+/* =========================
+   INFORMACIÓN
+========================= */
+
+.product-info {
+  position: relative;
+
+  padding: 20px;
+
+  background:
+    linear-gradient(
+      180deg,
+      #0a294e 0%,
+      #071f3b 55%,
+      #06182e 100%
+    ) !important;
+
+  color: #ffffff;
+}
+
+
+/* =========================
+   CATEGORÍA
+========================= */
+
+.product-category {
+  display: block;
+
+  margin-bottom: 8px;
+
+  color: #55a5ff;
+
+  font-size: 0.68rem;
+  font-weight: 800;
+
+  letter-spacing: 1.3px;
+
+  text-transform: uppercase;
+}
+
+
+/* =========================
+   NOMBRE
+========================= */
+
+.product-info h3 {
+  margin: 7px 0 11px;
+
+  min-height: 46px;
+
+  color: #ffffff !important;
+
+  font-size: 1.02rem;
+  line-height: 1.4;
+
+  font-weight: 700;
+}
+
+
+/* =========================
+   ESTRELLAS
+========================= */
+
+.product-rating {
+  display: flex;
+  align-items: center;
+
+  gap: 7px;
+
+  margin-bottom: 18px;
+}
+
+.product-rating span {
+  color: #ff9b27;
+
+  font-size: 0.82rem;
+  letter-spacing: 1px;
+}
+
+.product-rating small {
+  color: rgba(255, 255, 255, 0.55) !important;
+
+  font-size: 0.75rem;
+}
+
+
+/* =========================
+   PARTE INFERIOR
+========================= */
+
+.product-bottom {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  gap: 15px;
+
+  padding-top: 15px;
+
+  border-top:
+    1px solid rgba(255, 255, 255, 0.1);
+}
+
+
+/* =========================
+   PRECIOS
+========================= */
+
+.product-prices {
+  display: flex;
+
+  flex-direction: column;
+
+  gap: 3px;
+}
+
+.product-old-price {
+  color: rgba(255, 255, 255, 0.42) !important;
+
+  font-size: 0.78rem;
+
+  text-decoration: line-through;
+}
+
+.product-prices strong {
+  color: #ffffff !important;
+
+  font-size: 1.32rem;
+
+  font-weight: 800;
+}
+
+
+/* =========================
+   CARRITO
+========================= */
+
+.product-cart {
+  position: relative;
+
+  z-index: 20;
+
+  width: 46px;
+  height: 46px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  border: none;
+  border-radius: 11px;
+
+  background:
+    linear-gradient(
+      135deg,
+      #087dff,
+      #0752bd
+    );
+
+  color: #ffffff;
+
+  font-size: 1.1rem;
+
+  cursor: pointer;
+  pointer-events: auto;
+
+  box-shadow:
+    0 8px 18px rgba(0, 83, 190, 0.3);
+
+  transition:
+    transform 0.2s ease,
+    box-shadow 0.2s ease;
+}
+
+.product-cart:hover {
+  transform: translateY(-2px) scale(1.05);
+
+  box-shadow:
+    0 12px 25px rgba(0, 105, 230, 0.4);
+}
+
+
+/* =========================
+   TABLET
+========================= */
+
+@media (max-width: 700px) {
+  .product-image {
+    height: 250px;
+  }
+
+  .product-info {
+    padding: 18px;
+  }
+}
+
+
+/* =========================
+   MÓVIL
+========================= */
+
+@media (max-width: 480px) {
+  .product-image {
+    height: 240px;
+  }
+
+  .product-info h3 {
+    font-size: 1rem;
+  }
+
+  .product-prices strong {
+    font-size: 1.25rem;
+  }
+}

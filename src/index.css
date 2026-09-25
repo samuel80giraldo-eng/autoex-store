@@ -1,0 +1,133 @@
+/* =========================================
+   AUTOEX — DESIGN SYSTEM
+   ========================================= */
+
+:root {
+  /* Colores */
+  --autoex-blue: #0b5ed7;
+  --autoex-blue-dark: #063a8d;
+  --autoex-orange: #ff8500;
+
+  --autoex-black: #111111;
+  --autoex-white: #ffffff;
+
+  --autoex-gray-50: #f8f9fa;
+  --autoex-gray-100: #f1f3f5;
+  --autoex-gray-500: #6c757d;
+  --autoex-gray-700: #343a40;
+
+  /* Tipografía */
+  --font-primary: "Inter", sans-serif;
+
+  /* Bordes */
+  --radius-sm: 8px;
+  --radius-md: 14px;
+  --radius-lg: 20px;
+
+  /* Sombras */
+  --shadow-sm: 0 4px 12px rgba(0, 0, 0, 0.06);
+  --shadow-md: 0 10px 30px rgba(0, 0, 0, 0.08);
+  --shadow-lg: 0 20px 50px rgba(0, 0, 0, 0.12);
+
+  /* Contenedor */
+  --container-width: 1300px;
+}
+
+/* =========================================
+   RESET
+   ========================================= */
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  min-width: 320px;
+
+  font-family: var(--font-primary);
+  color: var(--autoex-black);
+
+  background: var(--autoex-white);
+
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+}
+
+/* =========================================
+   ELEMENTOS GENERALES
+   ========================================= */
+
+button,
+input,
+textarea,
+select {
+  font: inherit;
+}
+
+button {
+  cursor: pointer;
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+}
+
+a {
+  color: inherit;
+}
+
+/* =========================================
+   SELECCIÓN DE TEXTO
+   ========================================= */
+
+::selection {
+  background: var(--autoex-blue);
+  color: var(--autoex-white);
+}
+
+/* =========================================
+   SCROLLBAR
+   ========================================= */
+
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--autoex-gray-100);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--autoex-blue);
+  border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--autoex-blue-dark);
+}
+
+/* =========================================
+   CONTENEDOR GLOBAL
+   ========================================= */
+
+.container {
+  width: min(100% - 40px, var(--container-width));
+  margin: 0 auto;
+}
+
+/* =========================================
+   RESPONSIVE
+   ========================================= */
+
+@media (max-width: 768px) {
+  .container {
+    width: min(100% - 30px, var(--container-width));
+  }
+}

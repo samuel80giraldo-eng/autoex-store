@@ -1,0 +1,580 @@
+/* =========================
+   PÁGINA DE PEDIDOS
+========================= */
+
+.orders-page {
+  position: relative;
+  overflow: hidden;
+
+  min-height: 100vh;
+
+  padding: 110px 30px 90px;
+
+  background:
+    radial-gradient(
+      circle at 12% 15%,
+      rgba(11, 94, 215, 0.20),
+      transparent 30%
+    ),
+    radial-gradient(
+      circle at 88% 80%,
+      rgba(255, 133, 0, 0.08),
+      transparent 28%
+    ),
+    linear-gradient(
+      135deg,
+      #030916 0%,
+      #06142b 50%,
+      #020711 100%
+    );
+}
+
+/* BRILLOS AMBIENTALES */
+
+.orders-page::before {
+  content: "";
+
+  position: absolute;
+
+  width: 450px;
+  height: 450px;
+
+  top: -250px;
+  right: -150px;
+
+  border-radius: 50%;
+
+  background: rgba(11, 94, 215, 0.14);
+
+  filter: blur(100px);
+
+  pointer-events: none;
+}
+
+.orders-page::after {
+  content: "";
+
+  position: absolute;
+
+  width: 300px;
+  height: 300px;
+
+  left: -180px;
+  bottom: -140px;
+
+  border-radius: 50%;
+
+  background: rgba(255, 133, 0, 0.07);
+
+  filter: blur(90px);
+
+  pointer-events: none;
+}
+
+/* =========================
+   CONTENEDOR
+========================= */
+
+.orders-container {
+  position: relative;
+
+  z-index: 2;
+
+  width: min(1000px, 100%);
+
+  margin: 0 auto;
+}
+
+/* =========================
+   ENCABEZADO
+========================= */
+
+.orders-header {
+  position: relative;
+
+  margin-bottom: 40px;
+}
+
+.orders-header::before {
+  content: "";
+
+  display: block;
+
+  width: 65px;
+  height: 3px;
+
+  margin-bottom: 20px;
+
+  border-radius: 10px;
+
+  background: linear-gradient(
+    90deg,
+    #ff8500,
+    #ffb45f
+  );
+}
+
+.orders-header > span {
+  color: #1684ff;
+
+  font-size: 0.8rem;
+
+  font-weight: 800;
+
+  letter-spacing: 1.8px;
+
+  text-transform: uppercase;
+}
+
+.orders-header h1 {
+  margin: 8px 0 10px;
+
+  color: #ffffff;
+
+  font-size: clamp(
+    2.3rem,
+    5vw,
+    3.5rem
+  );
+
+  line-height: 1;
+
+  letter-spacing: -2px;
+}
+
+.orders-header p {
+  margin: 0;
+
+  color: rgba(255, 255, 255, 0.58);
+
+  font-size: 0.95rem;
+}
+
+/* =========================
+   SIN PEDIDOS
+========================= */
+
+.orders-empty {
+  padding: 60px 30px;
+
+  background:
+    linear-gradient(
+      145deg,
+      rgba(10, 31, 62, 0.96),
+      rgba(4, 17, 37, 0.96)
+    );
+
+  border: 1px solid rgba(255, 255, 255, 0.08);
+
+  border-radius: 18px;
+
+  text-align: center;
+
+  box-shadow:
+    0 20px 45px rgba(0, 0, 0, 0.25);
+}
+
+.orders-empty-icon {
+  margin-bottom: 15px;
+
+  color: #1684ff;
+
+  font-size: 3rem;
+}
+
+.orders-empty h2 {
+  margin: 0 0 10px;
+
+  color: #ffffff;
+}
+
+.orders-empty p {
+  margin-bottom: 25px;
+
+  color: rgba(255, 255, 255, 0.55);
+}
+
+.orders-empty button {
+  padding: 12px 22px;
+
+  border: none;
+
+  border-radius: 9px;
+
+  background: #ff8500;
+
+  color: #ffffff;
+
+  cursor: pointer;
+
+  font-weight: 700;
+
+  box-shadow:
+    0 8px 20px rgba(255, 133, 0, 0.20);
+
+  transition:
+    transform 0.2s ease,
+    box-shadow 0.2s ease;
+}
+
+.orders-empty button:hover {
+  transform: translateY(-2px);
+
+  box-shadow:
+    0 12px 25px rgba(255, 133, 0, 0.30);
+}
+
+/* =========================
+   LISTA
+========================= */
+
+.orders-list {
+  display: flex;
+
+  flex-direction: column;
+
+  gap: 22px;
+}
+
+/* =========================
+   TARJETA PEDIDO
+========================= */
+
+.order-card {
+  overflow: hidden;
+
+  background:
+    linear-gradient(
+      145deg,
+      rgba(10, 31, 62, 0.97),
+      rgba(4, 17, 37, 0.97)
+    );
+
+  border: 1px solid rgba(255, 255, 255, 0.08);
+
+  border-radius: 16px;
+
+  box-shadow:
+    0 15px 40px rgba(0, 0, 0, 0.22);
+
+  transition:
+    transform 0.25s ease,
+    border-color 0.25s ease,
+    box-shadow 0.25s ease;
+}
+
+.order-card:hover {
+  transform: translateY(-3px);
+
+  border-color: rgba(11, 94, 215, 0.35);
+
+  box-shadow:
+    0 20px 45px rgba(0, 0, 0, 0.30),
+    0 0 25px rgba(11, 94, 215, 0.06);
+}
+
+/* =========================
+   CABECERA DEL PEDIDO
+========================= */
+
+.order-header {
+  display: flex;
+
+  justify-content: space-between;
+
+  gap: 20px;
+
+  padding: 22px;
+
+  border-bottom: 1px solid rgba(255, 255, 255, 0.07);
+}
+
+.order-header div {
+  display: flex;
+
+  flex-direction: column;
+
+  gap: 5px;
+}
+
+.order-header span,
+.order-footer span {
+  color: rgba(255, 255, 255, 0.42);
+
+  font-size: 0.8rem;
+}
+
+.order-header strong {
+  color: #ffffff;
+
+  font-size: 0.9rem;
+}
+
+/* =========================
+   PRODUCTOS
+========================= */
+
+.order-products {
+  padding: 20px 22px;
+}
+
+.order-product {
+  display: flex;
+
+  gap: 15px;
+
+  padding: 12px 0;
+
+  border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.order-product:last-child {
+  border-bottom: none;
+}
+
+/* =========================
+   IMAGEN PRODUCTO
+========================= */
+
+.order-product-image {
+  width: 75px;
+  height: 75px;
+
+  flex-shrink: 0;
+
+  display: flex;
+
+  align-items: center;
+  justify-content: center;
+
+  overflow: hidden;
+
+  border-radius: 10px;
+
+  background:
+    linear-gradient(
+      145deg,
+      #0b2448,
+      #07172f
+    );
+
+  border: 1px solid rgba(255, 255, 255, 0.07);
+}
+
+.order-product-image img {
+  width: 100%;
+  height: 100%;
+
+  object-fit: contain;
+}
+
+/* =========================
+   INFORMACIÓN PRODUCTO
+========================= */
+
+.order-product-info {
+  display: flex;
+
+  flex-direction: column;
+
+  justify-content: center;
+
+  gap: 5px;
+}
+
+.order-product-info h3 {
+  margin: 0;
+
+  color: #ffffff;
+
+  font-size: 0.95rem;
+}
+
+.order-product-info span {
+  color: rgba(255, 255, 255, 0.45);
+
+  font-size: 0.8rem;
+}
+
+.order-product-info strong {
+  color: #ffffff;
+
+  font-size: 0.9rem;
+}
+
+/* =========================
+   DATOS DE ENTREGA
+========================= */
+
+.order-customer {
+  margin: 0 22px;
+
+  padding: 20px;
+
+  background:
+    linear-gradient(
+      145deg,
+      rgba(11, 52, 102, 0.60),
+      rgba(5, 26, 55, 0.60)
+    );
+
+  border: 1px solid rgba(255, 255, 255, 0.07);
+
+  border-radius: 12px;
+}
+
+.order-customer h3 {
+  margin: 0 0 15px;
+
+  color: #ffffff;
+
+  font-size: 1rem;
+}
+
+.order-customer p {
+  margin: 7px 0;
+
+  color: rgba(255, 255, 255, 0.55);
+
+  font-size: 0.85rem;
+
+  line-height: 1.5;
+}
+
+.order-customer p strong {
+  color: rgba(255, 255, 255, 0.85);
+
+  font-weight: 700;
+}
+
+/* =========================
+   PIE DEL PEDIDO
+========================= */
+
+.order-footer {
+  display: flex;
+
+  align-items: center;
+
+  justify-content: space-between;
+
+  gap: 20px;
+
+  padding: 20px 22px;
+
+  border-top: 1px solid rgba(255, 255, 255, 0.07);
+}
+
+.order-footer div {
+  display: flex;
+
+  flex-direction: column;
+
+  gap: 5px;
+}
+
+.order-footer strong {
+  color: #ffffff;
+
+  font-size: 1.3rem;
+}
+
+/* =========================
+   ESTADO
+========================= */
+
+.order-status {
+  padding: 7px 12px;
+
+  border-radius: 20px;
+
+  background: rgba(25, 135, 84, 0.14);
+
+  border: 1px solid rgba(25, 135, 84, 0.25);
+
+  color: #58d68d !important;
+
+  font-size: 0.75rem !important;
+
+  font-weight: 700;
+}
+
+/* =========================
+   MÓVIL
+========================= */
+
+@media (max-width: 600px) {
+
+  .orders-page {
+    padding: 90px 15px 60px;
+  }
+
+  .orders-header {
+    margin-bottom: 30px;
+  }
+
+  .orders-header h1 {
+    font-size: 2.2rem;
+
+    letter-spacing: -1px;
+  }
+
+  .orders-empty {
+    padding: 45px 20px;
+  }
+
+  .order-header,
+  .order-footer {
+    flex-direction: column;
+
+    align-items: flex-start;
+  }
+
+  .order-customer {
+    margin: 0 15px;
+  }
+
+  .order-products {
+    padding: 15px;
+  }
+
+  .order-footer {
+    padding: 18px;
+  }
+}
+.offers-back-button {
+display: inline-flex;
+align-items: center;
+gap: 8px;
+
+width: fit-content;
+
+margin-bottom: 25px;
+
+padding: 10px 16px;
+
+border: 1px solid rgba(22, 74, 156, 0.18);
+border-radius: 10px;
+
+background: rgba(22, 74, 156, 0.07);
+color: #164a9c;
+
+text-decoration: none;
+
+font-size: 0.85rem;
+font-weight: 700;
+
+transition:
+background 0.2s ease,
+color 0.2s ease,
+transform 0.2s ease,
+border-color 0.2s ease;
+}
+
+.offers-back-button:hover {
+background: #164a9c;
+border-color: #164a9c;
+color: #ffffff;
+
+transform: translateX(-3px);
+}
